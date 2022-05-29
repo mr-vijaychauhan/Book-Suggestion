@@ -3,7 +3,7 @@
  
  <head>
    <meta charset="utf-8" />
-   <title>Book Recommender System</title>
+   <title>Book Suggestion System</title>
    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
    <meta name="msapplication-TileColor" content="#ffffff" />
@@ -27,7 +27,7 @@
  
  
      <nav class="navbar navbar-expand-lg navbar-dark cyan darken-3 fixed-top my-6">
-       <a class="navbar-brand" href="#"><img src="images/book.png" height="36" width="36"/> Book Recommender</a>
+       <a class="navbar-brand" href="#"><img src="/static/images/book.png" height="36" width="36"/> Book Suggestion</a>
        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
@@ -67,7 +67,8 @@
               </div>
               <div class="card-footer">
                 <div class="float-left">
-                  <small class="text-truncate"><img src="images/author.jpg" onerror="this.src='https://via.placeholder.com/20'; this.onerror=null;" width="20"> {{ author[i] }}</small>
+                  <small class="text-truncate">
+                    <img src="/static/images/author.jpg" onerror="this.src='https://via.placeholder.com/20'; this.onerror=null;" width="20"> {{ author[i] }}</small>
                 </div>
                 <div class="float-right">
                      <ul class="list-inline">
