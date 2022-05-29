@@ -17,6 +17,9 @@
      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.10.1/bootstrap-social.css" rel="stylesheet" />
    <style>
+     .bg-brand{
+      background: linear-gradient(90.36deg,#805793 0.31%,#4f2f78 104.9%);
+     }
    .col-sm-2{
      margin:10px ;
    }
@@ -32,18 +35,18 @@
   padding: 10px;
   border-radius: 10px;
   border: 1px solid transparent;
-  background-color: #00838f !important;
+  background: linear-gradient(90.36deg,#805793 0.31%,#4f2f78 104.9%);
   transition: .3s;
 }
 #loadMore:hover {
-  color: #00838f !important;
+  color: #fff !important;
   background-color: #fff;
-  border: 1px solid #00838f !important;
+  background: linear-gradient(90.36deg,#805793 0.31%,#4f2f78 104.9%);
   text-decoration: none;
 }
 .noContent {
-  color: #000 !important;
-  background-color: transparent !important;
+  color: #fff !important;
+  background: linear-gradient(90.36deg,#805793 0.31%,#4f2f78 104.9%);
   pointer-events: none;
 }
    </style>
@@ -52,7 +55,7 @@
  <body>
  
  
-     <nav class="navbar navbar-expand-lg navbar-dark cyan darken-3 fixed-top my-6">
+     <nav class="navbar navbar-expand-lg navbar-dark bg-brand darken-3 fixed-top my-6">
        <a class="navbar-brand" href="#"><img src="/static/images/book.png" height="36" width="36"/> Book Suggestion</a>
        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -115,7 +118,7 @@
    
 
    <!-- Footer -->
-   <footer class="page-footer font-small cyan darken-3">
+   <footer class="page-footer font-small bg-brand darken-3">
      <!-- Footer Elements -->
      <div class="container"></div>
      <!-- Footer Elements -->
