@@ -23,6 +23,10 @@ def index():
         year_of_publication= list(popular_df['Year-Of-Publication'].values),
     )
 
+@app.route("/about-us")
+def about():
+    return render_template('about-us.html')
+
 @app.route("/book/<path:bookname>")
 def book(bookname):
     index= np.where(pt.index==bookname)[0][0]
