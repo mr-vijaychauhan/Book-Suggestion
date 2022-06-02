@@ -17,50 +17,14 @@
    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.10.1/bootstrap-social.css" rel="stylesheet" />
-   <style>
-     .bg-brand{
-      background: linear-gradient(90.36deg,#805793 0.31%,#4f2f78 104.9%);
-     }
-   .col-sm-2{
-     margin:10px ;
-   }
-   .books{
-    display: none;
-   }
-   #loadMore {
-  width: 200px;
-  color: #fff;
-  display: block;
-  text-align: center;
-  margin: 20px auto;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid transparent;
-  background: linear-gradient(90.36deg,#805793 0.31%,#4f2f78 104.9%);
-  transition: .3s;
-}
-#loadMore:hover {
-  color: #fff !important;
-  background-color: #fff;
-  background: linear-gradient(90.36deg,#805793 0.31%,#4f2f78 104.9%);
-  text-decoration: none;
-}
-.noContent {
-  color: #fff !important;
-  background: linear-gradient(90.36deg,#805793 0.31%,#4f2f78 104.9%);
-  pointer-events: none;
-}
-small{
-  font-size: 60%;
-}
-   </style>
+   <link rel="stylesheet" href="/static/css/style.css">
  </head>
  
  <body>
  
  
      <nav class="navbar navbar-expand-lg navbar-dark bg-brand darken-3 fixed-top my-6">
-       <a class="navbar-brand" href="#"><img src="/static/images/book.png" height="36" width="36"/> Book Suggestion</a>
+       <a class="navbar-brand" href="/"><img src="/static/images/book.png" height="36" width="36"/> Book Suggestion</a>
        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
@@ -71,9 +35,9 @@ small{
            <li class="nav-item active">
              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
            </li>
-           <li class="nav-item">
+           <!-- <li class="nav-item">
              <a class="nav-link" href="#">Recommendation</a>
-           </li>
+           </li> -->
  
            <li class="nav-item">
              <a class="nav-link" href="#about">About Us</a>
@@ -88,6 +52,12 @@ small{
        </div>
      </nav>
      <div class="container-fluid"  style="margin-top: 100px;margin-bottom: 100px;">
+      <div class="col-md-12">
+        <h3 class="headline centered margin-bottom-45">
+            <strong class="headline-with-separator">Top 50 Books</strong>
+            <!-- <span>Discover Top-Rated Local Businesses</span> -->
+        </h3>
+    </div>
       <div class="row justify-content-center">
         {% for i in range(book_name|length) %}
         <div class="col-sm-2 books">
@@ -97,7 +67,7 @@ small{
                <img src="{{ image[i] }}" class="card-img-top img-responsive bg-brand" onerror="this.src='https://via.placeholder.com/200'; this.onerror=null;" alt="..." width="" height="200">
               <div class="card-body">
                 <h6 class="card-title">
-                  <a href="#">
+                  <a href="/book/{{ book_name[i] }}">
                     {{ book_name[i] }}
                   </a>
                 </h6>
@@ -121,7 +91,9 @@ small{
         </div>
         {% endfor %}
       </div>
+      {% if( book_name|length >10) %}
       <a href="#" id="loadMore">Load More</a>
+      {% endif %}
      </div>
    
 
