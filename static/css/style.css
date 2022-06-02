@@ -1,0 +1,98 @@
+.bg-brand{
+    background: linear-gradient(90.36deg,#805793 0.31%,#4f2f78 104.9%);
+   }
+ .col-sm-2{
+   margin:10px ;
+ }
+ .books{
+  display: none;
+ }
+ #loadMore {
+width: 200px;
+color: #fff;
+display: block;
+text-align: center;
+margin: 20px auto;
+padding: 10px;
+border-radius: 10px;
+border: 1px solid transparent;
+background: linear-gradient(90.36deg,#805793 0.31%,#4f2f78 104.9%);
+transition: .3s;
+}
+#loadMore:hover {
+color: #fff !important;
+background-color: #fff;
+background: linear-gradient(90.36deg,#805793 0.31%,#4f2f78 104.9%);
+text-decoration: none;
+}
+.noContent {
+color: #fff !important;
+background: linear-gradient(90.36deg,#805793 0.31%,#4f2f78 104.9%);
+pointer-events: none;
+}
+small{
+font-size: 60%;
+}
+
+/* Section */
+strong.headline-with-separator, .headline-with-separator {
+    position: relative;
+    margin-bottom: 27px;
+    font-weight: 400;
+    display: block;
+}
+.headline.centered {
+    text-align: center;
+}
+
+h3.headline {
+    font-size: 29px;
+    line-height: 36px;
+    margin: 0 0 30px 0;
+}
+.margin-bottom-45,.margin-top-45 {
+    margin-bottom: 45px !important;
+}
+.centered .headline-with-separator:after {
+    left: 0;
+    right: 0;
+}
+.headline-with-separator:after, .listing-item-container.list-layout span.tag, .listing-item-content span.tag, .transparent-header #header:not(.cloned) #navigation.style-1>ul>li:hover>a, .transparent-header #header:not(.cloned) #navigation.style-1>ul>li>a.current, .transparent-header #header:not(.cloned) .header-widget .button.border:hover, .transparent-header #header:not(.cloned) .header-widget .button:hover {
+    background: linear-gradient(90.36deg,#a278b6 0.31%,#a587cb 104.9%);
+}
+.headline-with-separator:after {
+    bottom: -11px;
+    left: 2px;
+    width: 90px;
+    content: "";
+    height: 4px;
+    border-radius: 6px;
+    background: linear-gradient(90.36deg,#a278b6 0.31%,#a587cb 104.9%);
+    display: block;
+    position: absolute;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h3.headline {
+    font-size: 29px;
+    line-height: 36px;
+    margin: 0 0 30px 0;
+}
+h3,a{
+    color: #9064ac;
+}
+
+/* Detail */
+.card .card-subtitle {
+    font-weight: 300;
+    margin-bottom: 10px;
+    color: #8898aa;
+}
+.table-product.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f3f8fa!important
+}
+.table-product td{
+    border-top: 0px solid #dee2e6 !important;
+    color: #728299!important;
+}
