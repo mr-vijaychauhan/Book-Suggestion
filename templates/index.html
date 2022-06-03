@@ -68,7 +68,7 @@
           <div class="card">
             <div class="card-block">
                <!-- <img src="{{ image[i] }}" class="card-img-top img-responsive" alt="..." width="" height="200"> -->
-               <img src="{{ image[i] }}" class="card-img-top img-responsive img-responsive  bg-brand" onerror="this.src='https://via.placeholder.com/200'; this.onerror=null;" alt="..." width="" height="200">
+               <img src="{{ image[i] }}" class="card-img-top img-responsive img-responsive  bg-brand" onerror="this.src='{{ image[i] }}'; this.onerror=null;" alt="..." width="" height="200">
               <div class="card-body">
                 <h6 class="card-title">
                   <a href="/book/{{ book_name[i] }}">
