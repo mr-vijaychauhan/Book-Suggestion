@@ -11,9 +11,10 @@
       http-equiv="Content-Security-Policy"
       content="block-all-mixed-content"
     />
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-    <meta name="msapplication-TileColor" content="#ffffff" />
-    <meta name="msapplication-TileImage" content="img/ms-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/static/images/favicon/site.webmanifest">
     <meta name="theme-color" content="#ffffff" />
     <link
       rel="stylesheet"
@@ -64,7 +65,7 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
+          <li class="nav-item {% if request.path=='/' %} active {% endif %}">
             <a class="nav-link" href="/"
               >Home <span class="sr-only">(current)</span></a
             >
@@ -73,7 +74,7 @@
             <a class="nav-link" href="#">Recommendation</a>
           </li> -->
 
-          <li class="nav-item">
+          <li class="nav-item {% if request.path=='/about-us' %} active {% endif %}">
             <a class="nav-link" href="/about-us">About Us</a>
           </li>
         </ul>
