@@ -96,3 +96,9 @@ h3,a{
     border-top: 0px solid #dee2e6 !important;
     color: #728299!important;
 }
+
+.fa-brand{
+    background: -webkit-linear-gradient(90.36deg,#a278b6 0.31%,#a587cb 104.9%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
