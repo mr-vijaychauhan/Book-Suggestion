@@ -2,6 +2,8 @@
 from flask import Flask,render_template
 import pickle
 import numpy as np
+import requests
+import os.path
 
 
 ## Model 
@@ -14,6 +16,15 @@ app = Flask(__name__,static_url_path='/static')
 
 @app.route("/")
 def index():
+    bookURL=popular_df['Image-URL-M'].values
+    for i in bookURL:
+        imageUrl=i
+        imageName="static/Image-URL-M/"+imageUrl.split("/")[-1]
+        if not os.path.isfile(imageName):
+            f = open(imageName,'wb')
+            f.write(requests.get(imageUrl).content)
+            f.close()
+            
     return render_template('index.html',
         book_name= list(popular_df['Book-Title'].values),
         author= list(popular_df['Book-Author'].values),
