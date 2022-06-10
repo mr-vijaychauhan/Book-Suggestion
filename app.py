@@ -24,7 +24,7 @@ def index():
             f = open(imageName,'wb')
             f.write(requests.get(imageUrl).content)
             f.close()
-            
+
     return render_template('index.html',
         book_name= list(popular_df['Book-Title'].values),
         author= list(popular_df['Book-Author'].values),
@@ -46,6 +46,13 @@ def book(bookname):
     for i in similar_items:
         item = []
         temp_df=books[books['Book-Title'] == pt.index[i[0]]]
+        imageUrl=(temp_df.drop_duplicates('Book-Title')['Image-URL-M'].values)[0]
+        imageName="static/Image-URL-M/"+imageUrl.split("/")[-1]
+        if not os.path.isfile(imageName):
+            f = open(imageName,'wb')
+            f.write(requests.get(imageUrl).content)
+            f.close()
+
         item.extend(list(temp_df.drop_duplicates('Book-Title')['Book-Title'].values))
         item.extend(list(temp_df.drop_duplicates('Book-Title')['Book-Author'].values))
         item.extend(list(temp_df.drop_duplicates('Book-Title')['Image-URL-M'].values))
