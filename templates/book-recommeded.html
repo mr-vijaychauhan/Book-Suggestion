@@ -6,7 +6,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-5 col-md-5 col-sm-6">
-                        <div class="white-box text-center"><img src="/static/Image-URL-L/{{ (books_details[0][4].split('/')[-1]) }}" onerror="this.src='https://via.placeholder.com/430'; this.onerror=null;"class="img-responsive bg-brand img-fluid"  width="430" height="430"></div>
+                        <div class="white-box text-center"><img src="/static/Image-URL-L/{{ (books_details[0][4].split('/')[-1]) }}" onerror="this.src='https://via.placeholder.com/430'; this.onerror=null;"class="img-responsive bg-brand img-fluid"  width="430" height="430" loading="lazy"></div>
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-6">
                         <h3 class="card-title">{{books_details[0][0]}}</h3>
@@ -44,7 +44,7 @@
        <div class="col-sm-2 books">
         <div class="card">
           <div class="card-block">
-             <img src="/static/Image-URL-L/{{ (i[4].split('/')[-1]) }}" class="card-img-top img-responsive bg-brand" onerror="this.src='https://via.placeholder.com/200'; this.onerror=null;" alt="..." width="" height="200">
+             <img src="/static/Image-URL-L/{{ (i[4].split('/')[-1]) }}" class="card-img-top img-responsive bg-brand" onerror="this.src='https://via.placeholder.com/200'; this.onerror=null;" alt="..." width="" height="200" loading="lazy">
             <div class="card-body">
               <h6 class="card-title">
                 <a href="/book/{{ i[0] }}">

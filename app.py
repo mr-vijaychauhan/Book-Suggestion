@@ -1,10 +1,9 @@
 # save this as app.py
-from flask import Flask,render_template
+from flask import Flask,render_template,request
 import pickle
 import numpy as np
 import requests
 import os.path
-
 
 ## Model 
 popular_df= pickle.load(open('model/popular.pkl','rb'))
@@ -72,6 +71,34 @@ def book(bookname):
 
     return render_template('book-recommeded.html',data= data,books_details=books_details)
 
+@app.route("/search")
+def do_search():
+    search = request.args.get('search')
+    results=books[books['Book-Title'].str.contains(search,na=False, case=False)].drop_duplicates('Book-Title')
+
+    num_search_result=len(books[books['Book-Title'].str.contains(search,na=False, case=False)].drop_duplicates('Book-Title'))
+
+    bookURL=results['Image-URL-L'].values
+    for i in bookURL:
+        imageUrl=i
+        imageName="static/Image-URL-L/"+imageUrl.split("/")[-1]
+        if not os.path.isfile(imageName):
+            f = open(imageName,'wb')
+            f.write(requests.get(imageUrl).content)
+            f.close()
+            
+    return render_template('book-search.html',
+        book_name= list(books[books['Book-Title'].str.contains(search, na=False, case=False)].drop_duplicates('Book-Title')['Book-Title'].values),
+        author= list(books[books['Book-Title'].str.contains(search, na=False, case=False)].drop_duplicates('Book-Title')['Book-Author'].values),
+        image_M= list(books[books['Book-Title'].str.contains(search, na=False, case=False)].drop_duplicates('Book-Title')['Image-URL-M'].values),
+        image_L= list(books[books['Book-Title'].str.contains(search, na=False, case=False)].drop_duplicates('Book-Title')['Image-URL-L'].values),
+        search=search,
+        num_search_result=num_search_result,
+    )
+
+
 if __name__ == '__main__':
+    app.jinja_env.auto_reload = True
+    app.config['TEMPLATES_AUTO_RELOAD'] = True
     app.run(debug=True)
     

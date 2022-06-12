@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock %}
+{% block content %}
+     <div class="container-fluid"  style="margin-top: 100px;margin-bottom: 100px;">
+      <div class="col-md-12">
+        <h3 class="headline centered margin-bottom-45">
+            <strong class="headline-with-separator">
+              {{num_search_result}} Result found for '{{ search }}'
+            </strong>
+        </h3>
+    </div>
+    <div class="container">
+
+      <div class="row height d-flex justify-content-center align-items-center">
+
+        <div class="col-md-6">
+          <form method="GET" action="/search" >
+            <div class="form">
+              <i class="fa fa-search"></i>
+              <input type="text" class="form-control form-input" name="search" placeholder="Search anything...">
+              <span class="left-pan"><i class="fa fa-microphone"></i></span>
+            </div>
+        </form>
+        </div>
+        
+      </div>
+      
+    </div>
+      <div class="row justify-content-center my-4">
+        {% for i in range(book_name|length) %}
+        <div class="col-sm-2 books">
+          <div class="card">
+            <div class="card-block">
+               <img src="/static/Image-URL-L/{{ (image_L[i].split('/')[-1]) }}" class="card-img-top img-responsive img-responsive  bg-brand" onerror="this.src='https://via.placeholder.com/200'; this.onerror=null;" alt="..." width="" height="160" loading="lazy">
+              <div class="card-body">
+                <h6 class="card-title">
+                  <a href="/book/{{ book_name[i] }}">
+                    {{ book_name[i] }}
+                  </a>
+                </h6>
+              </div>
+              <div class="card-footer">
+                <div class="float-left">
+                  <small class="text-truncate">
+                    <img src="/static/images/author.png" onerror="this.src='https://via.placeholder.com/20'; this.onerror=null;" width="20"> {{ author[i] }}</small>
+                </div>
+                <div class="float-right">
+                     <ul class="list-inline">
+                        <li class="list-inline-item">
+                          <!-- <small> <i class="fas fa-star text-warning"></i>3.2 </small> -->
+                        </li>
+                     </ul>
+                </div>
+                
+              </div>
+          </div>
+        </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% if( book_name|length >10) %}
+      <a href="#" id="loadMore">Load More</a>
+      {% endif %}
+     </div>
+{% endblock %}
