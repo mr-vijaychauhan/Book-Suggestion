@@ -27,7 +27,6 @@ def index():
 
     return render_template('index.html',
         book_name= list(popular_df['Book-Title'].values),
-        book_slug= list(slugify(popular_df['Book-Title'][0])),
         author= list(popular_df['Book-Author'].values),
         image_M= list(popular_df['Image-URL-M'].values),
         image_L= list(popular_df['Image-URL-L'].values),
