@@ -4,6 +4,7 @@ import pickle
 import numpy as np
 import requests
 import os.path
+from slugify import slugify
 
 ## Model 
 popular_df= pickle.load(open('model/popular.pkl','rb'))
@@ -26,9 +27,11 @@ def index():
 
     return render_template('index.html',
         book_name= list(popular_df['Book-Title'].values),
+        book_slug= list(slugify(popular_df['Book-Title'][0])),
         author= list(popular_df['Book-Author'].values),
         image_M= list(popular_df['Image-URL-M'].values),
         image_L= list(popular_df['Image-URL-L'].values),
+        slug= list(popular_df['Book-Slug'].values),
         votes= list(popular_df['num_ratings'].values),
         ratings= list(popular_df['avg_ratings'].values),
         year_of_publication= list(popular_df['Year-Of-Publication'].values),
@@ -38,9 +41,12 @@ def index():
 def about():
     return render_template('about-us.html')
 
-@app.route("/book/<path:bookname>")
-def book(bookname):
+@app.route("/book/<path:name>")
+def book(name):
+    bookname=books[books['Book-Slug'] == name].drop_duplicates('Book-Slug')['Book-Title'].values[0]
+    print(bookname)
     index= np.where(pt.index==bookname)[0][0]
+    print(bookname)
     similar_items= sorted(list(enumerate(similarity_score[index])),key=lambda x:x[1],reverse=True)[1:11]
     data= [] 
     for i in similar_items:
@@ -58,6 +64,7 @@ def book(bookname):
         item.extend(list(temp_df.drop_duplicates('Book-Title')['Image-URL-M'].values))
         item.extend(list(temp_df.drop_duplicates('Book-Title')['Year-Of-Publication'].values))
         item.extend(list(temp_df.drop_duplicates('Book-Title')['Image-URL-L'].values))
+        item.extend(list(temp_df.drop_duplicates('Book-Title')['Book-Slug'].values))
         data.append(item)
 
         books_details = [] 
@@ -67,8 +74,9 @@ def book(bookname):
         book_items.extend(list(books[books['Book-Title'] == bookname].drop_duplicates('Book-Title')['Image-URL-M'].values))
         book_items.extend(list(books[books['Book-Title'] == bookname].drop_duplicates('Book-Title')['Year-Of-Publication'].values))
         book_items.extend(list(books[books['Book-Title'] == bookname].drop_duplicates('Book-Title')['Image-URL-L'].values))
+        book_items.extend(list(books[books['Book-Title'] == bookname].drop_duplicates('Book-Title')['Book-Slug'].values))
         books_details.append(book_items)
-
+  
     return render_template('book-recommeded.html',data= data,books_details=books_details)
 
 @app.route("/search")
@@ -92,6 +100,7 @@ def do_search():
         author= list(books[books['Book-Title'].str.contains(search, na=False, case=False)].drop_duplicates('Book-Title')['Book-Author'].values),
         image_M= list(books[books['Book-Title'].str.contains(search, na=False, case=False)].drop_duplicates('Book-Title')['Image-URL-M'].values),
         image_L= list(books[books['Book-Title'].str.contains(search, na=False, case=False)].drop_duplicates('Book-Title')['Image-URL-L'].values),
+        slug= list(books[books['Book-Title'].str.contains(search, na=False, case=False)].drop_duplicates('Book-Title')['Book-Slug'].values),
         search=search,
         num_search_result=num_search_result,
     )
