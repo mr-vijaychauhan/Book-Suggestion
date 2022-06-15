@@ -15,7 +15,7 @@
     <a href="https://github.com/mr-vijaychauhan/Book-Suggestion"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://book-suggestion-system.herokuapp.com/https://book-suggestion-system.herokuapp.com/">View Demo</a>
+    <a href="https://book-suggestion-system.herokuapp.com/">View Demo</a>
     ·
     <a href="https://github.com/mr-vijaychauhan/Book-Suggestion/issues">Report Bug</a>
     ·
@@ -60,7 +60,6 @@ Book Suugestion is a Recommendation of Top Books to help to choose your Favourit
 ### Built With
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-https://jupyter.org/
 
 * [Python](https://www.python.org/)
 * [Jupyter Notebook](https://jupyter.org/)
