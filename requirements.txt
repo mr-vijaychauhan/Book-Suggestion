@@ -4,4 +4,4 @@ pandas
 gunicorn
 requests
 slugify
-pickle
+pickle5
