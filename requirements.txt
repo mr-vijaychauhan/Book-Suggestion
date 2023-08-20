@@ -4,4 +4,5 @@ pandas
 gunicorn
 requests
 slugify
+python-slugify
 pickle5
