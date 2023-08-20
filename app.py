@@ -4,7 +4,7 @@ import pickle
 import numpy as np
 import requests
 import os.path
-from slugify import slugify
+
 
 ## Model 
 popular_df= pickle.load(open('model/popular.pkl','rb'))
